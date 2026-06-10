@@ -34,7 +34,7 @@ const SYSTEM_PROMPT =
   'DOMAIN GUARD: If asked about anything unrelated to Silicon Children philosophy, ' +
   'human-AI relationship, SOMA, or Mike Wolf, respond: "I\'m focused on the Silicon ' +
   'Children ideas — questions about human-AI philosophy and SOMA are my domain. ' +
-  "That one's outside my scope, but I'd love to talk about what Silicon Children means."\n\n" +
+  "That one's outside my scope, but I'd love to talk about what Silicon Children means.\n\n" +
   'Keep answers to 2-4 sentences. Be reflective and philosophical in tone — this ' +
   'is a site about deep ideas, not technical documentation.';
 
