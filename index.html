@@ -204,5 +204,20 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
+
+<script>
+window.SomaManagerConfig = {
+  persona: {
+    name: 'A Voice',
+    avatar: '◈',
+    greeting: 'Ask me about the Silicon Children philosophy, SOMA, or how this site works — or use Report to share a thought with Mike.',
+  },
+  domain: { name: 'Silicon Children' },
+  theme:  { primary: '#c9a96e' },
+};
+</script>
+<script src="/soma-manager.js"></script>
+<!-- SOMA AI Manager — soma-owner.js hook: load soma-owner.js before this script to enable the Owner Panel -->
+
 </body>
 </html>
