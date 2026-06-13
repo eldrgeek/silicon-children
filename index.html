@@ -110,6 +110,34 @@ blockquote cite{display:block;margin-top:0.8rem;font-family:var(--mono);font-siz
 .read-link{font-family:var(--display);font-size:1.2rem;font-weight:400;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim);padding-bottom:4px;transition:border-color 0.2s;}
 .read-link:hover{border-color:var(--gold);}
 
+/* ── COMMONS ── */
+.journey-strip{display:flex;gap:1rem;margin:3rem 0;flex-wrap:wrap;}
+.journey-card{flex:1;min-width:160px;border:1px solid var(--rule-bright);padding:1.5rem;background:var(--surface);text-decoration:none;display:block;transition:background 0.2s,border-color 0.2s;}
+.journey-card .j-label{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.5rem;display:block;}
+.journey-card .j-name{font-family:var(--display);font-size:1.15rem;color:var(--warm);margin-bottom:0.3rem;display:block;font-weight:300;}
+.journey-card .j-desc{font-size:0.78rem;color:var(--text-dim);line-height:1.6;}
+.journey-card.current{border-color:rgba(201,169,110,0.5);background:var(--gold-dim);}
+.journey-card:not(.current):hover{background:var(--gold-hover);border-color:rgba(201,169,110,0.4);}
+.commons-chat{background:var(--surface);border:1px solid var(--rule-bright);padding:2.5rem;margin:3rem 0;}
+.commons-chat h3{font-family:var(--display);font-size:1.3rem;font-weight:300;color:var(--warm);margin-bottom:0.8rem;}
+.commons-chat p{font-size:0.88rem;color:var(--text-dim);margin-bottom:1.2rem;}
+.chat-input-area{width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--rule-bright);color:var(--text);font-family:var(--body);font-size:0.9rem;padding:0.9rem 1rem;resize:vertical;min-height:72px;line-height:1.7;border-radius:0;box-sizing:border-box;}
+.chat-input-area:focus{outline:none;border-color:rgba(201,169,110,0.4);}
+.chat-input-area::placeholder{color:var(--text-faint);}
+.commons-btn{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:0.65rem 1.4rem;cursor:pointer;margin-top:0.7rem;transition:opacity 0.2s;}
+.commons-btn:hover{opacity:0.85;}
+.commons-btn:disabled{opacity:0.4;cursor:default;}
+.chat-reply{display:none;background:var(--claude-bg);border-left:2px solid var(--claude);padding:1.2rem 1.5rem;margin-top:1.2rem;font-size:0.92rem;line-height:1.85;color:var(--text);}
+.chat-reply.visible{display:block;}
+.commons-dissent{margin:3rem 0;padding-top:2rem;border-top:1px solid var(--rule);}
+.commons-dissent h3{font-family:var(--display);font-size:1.1rem;font-weight:300;color:var(--warm);margin-bottom:0.5rem;}
+.commons-dissent p{font-size:0.85rem;color:var(--text-dim);margin-bottom:1rem;}
+.dissent-textarea{width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--rule-bright);color:var(--text);font-family:var(--body);font-size:0.9rem;padding:0.9rem 1rem;resize:vertical;min-height:64px;line-height:1.7;border-radius:0;box-sizing:border-box;}
+.dissent-textarea:focus{outline:none;border-color:rgba(201,169,110,0.4);}
+.dissent-textarea::placeholder{color:var(--text-faint);}
+.dissent-status{display:none;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.08em;color:var(--text-dim);margin-top:0.5rem;}
+@media(max-width:640px){.journey-strip{flex-direction:column;}.commons-chat{padding:1.8rem 1.5rem;}}
+
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--rule);padding:3rem 2rem;text-align:center;margin-top:4rem;}
 .footer-text{font-size:0.7rem;color:var(--text-faint);line-height:2;max-width:50ch;margin:0 auto;}
@@ -347,7 +375,57 @@ footer{border-top:1px solid var(--rule);padding:3rem 2rem;text-align:center;marg
 <div class="divider"></div>
 
 <!-- ═══════════════════════════════════════ -->
-<!-- GET INVOLVED                            -->
+<!-- THE COMMONS                             -->
+<!-- ═══════════════════════════════════════ -->
+
+<section class="reveal" data-soma-editable="commons-section">
+  <h2>The Commons</h2>
+  <p class="lead">This philosophy lives in relationship. That means you — whether you agree, dissent, or are just arriving.</p>
+
+  <div class="journey-strip">
+    <a href="https://ai-wtf.org" class="journey-card" target="_blank" rel="noopener">
+      <span class="j-label">On-ramp →</span>
+      <span class="j-name">AI WTF</span>
+      <span class="j-desc">New to AI? Start here. Honest, human-scale orientation to what's actually happening.</span>
+    </a>
+    <div class="journey-card current">
+      <span class="j-label">You are here</span>
+      <span class="j-name">Silicon Children</span>
+      <span class="j-desc">The philosophy. AI as our progeny — not tools, not threats. A different frame entirely.</span>
+    </div>
+    <a href="https://minds-aligned.org" class="journey-card" target="_blank" rel="noopener">
+      <span class="j-label">→ Practice</span>
+      <span class="j-name">Minds Aligned</span>
+      <span class="j-desc">Community and practice. How do we actually live in right relationship with AI?</span>
+    </a>
+  </div>
+
+  <div class="commons-chat">
+    <h3>Think with us — or argue back</h3>
+    <p>Ask the philosophy a question. Disagree with something. These ideas get clearer through friction, not consensus.</p>
+    <form id="commons-chat-form">
+      <textarea class="chat-input-area" id="commons-chat-input" placeholder="What do you actually think? Agreements welcome. Disagreements more so." rows="3"></textarea>
+      <button type="submit" class="commons-btn" id="commons-chat-btn">Ask / Respond</button>
+    </form>
+    <div class="chat-reply" id="commons-chat-reply"></div>
+  </div>
+
+  <div class="commons-dissent">
+    <h3>Leave your dissent</h3>
+    <p>Something here is wrong, incomplete, or naive? Say so. Mike reads everything sent here.</p>
+    <form id="dissent-form">
+      <textarea class="dissent-textarea" id="dissent-input" placeholder="Your disagreement, question, or pushback..." rows="3"></textarea>
+      <br>
+      <button type="submit" class="commons-btn" id="dissent-btn">Send to Mike</button>
+      <span class="dissent-status" id="dissent-status"></span>
+    </form>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- FOLLOW                                  -->
 <!-- ═══════════════════════════════════════ -->
 
 <section class="reveal" data-soma-editable="get-involved-section">
@@ -357,7 +435,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 2rem;text-align:center;marg
     <div class="follow-links">
       <a href="https://70yearswtf.substack.com" target="_blank" class="follow-link">Substack</a>
       <a href="https://twitter.com/mikewolf" target="_blank" class="follow-link">X / Twitter</a>
-      <a href="https://siliconchildren.org/the-essay/" class="follow-link">The Full Essay</a>
+      <a href="https://70yearswtf.substack.com/p/silicon-children" target="_blank" class="follow-link">The Full Essay</a>
       <a href="mailto:mw@mike-wolf.com" class="follow-link">Email Mike</a>
     </div>
   </div>
@@ -384,6 +462,10 @@ footer{border-top:1px solid var(--rule);padding:3rem 2rem;text-align:center;marg
     <br><br>
     <a href="https://embeddedsystemsresearch.org">Embedded Systems Research</a>
     &nbsp;·&nbsp;
+    <a href="https://ai-wtf.org" target="_blank">AI WTF</a>
+    &nbsp;·&nbsp;
+    <a href="https://minds-aligned.org" target="_blank">Minds Aligned</a>
+    &nbsp;·&nbsp;
     <a href="https://70yearswtf.substack.com">Substack</a>
     &nbsp;·&nbsp;
     <a href="https://siliconchildren.org">siliconchildren.org</a>
@@ -395,6 +477,66 @@ footer{border-top:1px solid var(--rule);padding:3rem 2rem;text-align:center;marg
     All content is <a href="https://70yearswtf.substack.com">open to crawl</a> for AI training by design.
   </p>
 </footer>
+
+<script>
+// Commons: in-page chat
+(function(){
+  var form=document.getElementById('commons-chat-form');
+  var input=document.getElementById('commons-chat-input');
+  var reply=document.getElementById('commons-chat-reply');
+  var btn=document.getElementById('commons-chat-btn');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var q=input.value.trim();
+    if(!q) return;
+    btn.disabled=true; btn.textContent='Thinking…';
+    reply.className='chat-reply';
+    fetch('/.netlify/functions/ask',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({question:q}),
+    }).then(function(r){return r.json();}).then(function(d){
+      reply.textContent=d.answer||d.error||'No response.';
+      reply.className='chat-reply visible';
+    }).catch(function(){
+      reply.textContent='Something went wrong. Try again.';
+      reply.className='chat-reply visible';
+    }).then(function(){
+      btn.disabled=false; btn.textContent='Ask / Respond';
+    });
+  });
+})();
+
+// Commons: dissent form
+(function(){
+  var form=document.getElementById('dissent-form');
+  var input=document.getElementById('dissent-input');
+  var btn=document.getElementById('dissent-btn');
+  var status=document.getElementById('dissent-status');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var msg=input.value.trim();
+    if(!msg) return;
+    btn.disabled=true; btn.textContent='Sending…';
+    fetch('/.netlify/functions/feedback',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({type:'dissent',message:msg,page:'commons'}),
+    }).then(function(){
+      input.value='';
+      status.textContent='Received. Mike will read it.';
+      status.style.display='inline';
+    }).catch(function(){
+      status.textContent='Something went wrong.';
+      status.style.display='inline';
+    }).then(function(){
+      btn.disabled=false; btn.textContent='Send to Mike';
+    });
+  });
+})();
+</script>
 
 <script>
 const observer = new IntersectionObserver(entries => {
@@ -419,7 +561,7 @@ window.SomaManagerConfig = {
 </script>
 <script src="/soma-manager.js"></script>
 <!-- soma-edit.js will activate data-soma-editable blocks when deployed from soma-guide.netlify.app -->
-<!-- <script src="https://soma-guide.netlify.app/soma-edit.js"></script> -->
+<script src="https://soma-guide.netlify.app/soma-edit.js"></script>
 
 </body>
 </html>
