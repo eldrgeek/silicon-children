@@ -1,0 +1,5 @@
+# Redirect siliconchildren.net (and www) -> siliconchildren.com over HTTPS
+http://siliconchildren.net/*       https://siliconchildren.com/:splat   301!
+https://siliconchildren.net/*      https://siliconchildren.com/:splat   301!
+http://www.siliconchildren.net/*   https://siliconchildren.com/:splat   301!
+https://www.siliconchildren.net/*  https://siliconchildren.com/:splat   301!
